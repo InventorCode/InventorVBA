@@ -11,7 +11,7 @@ Public Function GetiLogicAddin() As ApplicationAddIn
 'Description: Returns the iLogic addin
 'Dependencies: N/A
 '***************************************************
-    Const SUB_NAME As String = "GetiLogicAddin"
+    Const FUNCTION_NAME As String = "GetiLogicAddin"
     Const ILOGIC_ADDIN_GUID As String = "{3BDD8D79-2179-4B11-8A5A-257B1C0263AC}"
     
     Dim addIn As ApplicationAddIn
@@ -24,7 +24,7 @@ Public Function GetiLogicAddin() As ApplicationAddIn
         Set GetiLogicAddin = addIn
     Case -2147467259
         MsgBox _
-            Title:=SUB_NAME, _
+            Title:=FUNCTION_NAME, _
             Prompt:="iLogic Addin could not be found.", _
             Buttons:=vbExclamation
     Case Else
