@@ -11,6 +11,7 @@ Private Sub ViewLocals()
     'Select an object in Inventor, run this sub, then view the locals window
     Dim app As Application: Set app = ThisApplication
     Dim doc As Document: Set doc = app.ActiveDocument
+	Dim compDef As ComponentDefinition: Set compDef = doc.ComponentDefinition
     Dim selSet As SelectSet: Set selSet = doc.SelectSet
     
     If selSet.Count > 0 Then
