@@ -11,12 +11,16 @@ Private Sub ViewLocals()
     'Select an object in Inventor, run this sub, then view the locals window
     Dim app As Application: Set app = ThisApplication
     Dim doc As Document: Set doc = app.ActiveDocument
-	Dim compDef As ComponentDefinition: Set compDef = doc.ComponentDefinition
+    
+    Select Case doc.DocumentType
+    Case kPartDocumentObject, kAssemblyDocumentObject
+        Dim compDef As ComponentDefinition: Set compDef = doc.ComponentDefinition
+    End Select
+    
     Dim selSet As SelectSet: Set selSet = doc.SelectSet
     
     If selSet.Count > 0 Then
         Dim selectedObj As Object: Set selectedObj = selSet(1)
-        
         'Uncomment this only if you know the selected object has a Browser Node.  Otherwise Inventor can crash.
         'Dim selectedObj_BrowserNode As BrowserNode: Set selectedObj_BrowserNode = doc.BrowserPanes("Model").GetBrowserNodeFromObject(selectedObj)
     End If
